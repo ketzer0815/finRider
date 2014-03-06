@@ -4,6 +4,7 @@ import com.example.android.animationsdemo.R;
 
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,8 @@ public class ScreenSlidePageFragment extends Fragment {
         
         //Set the content
         ((TextView) rootView.findViewById(R.id.fragment_screen_slide_page_text_body) ).setText("Spielbank - Zins 3.1% - Rate 523€");
+        
+        rootView.setBackgroundColor(Color.YELLOW);
 
         return rootView;
     }

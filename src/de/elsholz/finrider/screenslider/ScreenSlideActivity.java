@@ -57,8 +57,8 @@ public class ScreenSlideActivity extends FragmentActivity {
 		super.onCreateOptionsMenu(menu);
 		getMenuInflater().inflate(R.menu.activity_screen_slide, menu);
 
-		menu.findItem(R.id.action_previous).setEnabled(
-				mPager.getCurrentItem() > 0);
+		// menu.findItem(R.id.action_previous).setEnabled(mPager.getCurrentItem()
+		// > 0);
 
 		// Add either a "next" or "finish" button to the action bar, depending
 		// on which page
@@ -76,29 +76,39 @@ public class ScreenSlideActivity extends FragmentActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
+		boolean gotoHell = false;
+		int current = mPager.getCurrentItem();
 
+		switch (item.getItemId()) {
 		case R.id.action_previous:
 			// Go to the previous step in the wizard. If there is no previous
 			// step,
 			// setCurrentItem will do nothing.
-			mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-			return true;
-
+			mPager.setCurrentItem(current - 1);
+			if (mPager.getCurrentItem() != current) {
+				return true;
+			} else {
+				gotoHell = true;
+			}
+			break;
 		case R.id.action_next:
 			// Advance to the next step in the wizard. If there is no next step,
 			// setCurrentItem
 			// will do nothing.
-			int current = mPager.getCurrentItem();
 			mPager.setCurrentItem(current + 1);
 			if (mPager.getCurrentItem() != current) {
 				return true;
+			} else {
+				gotoHell = true;
 			}
-			// wenn es schon die letzte Seite ist dann zurück
+			break;
 		case android.R.id.home:
 			// Navigate "up" the demo structure to the launchpad activity.
 			// See http://developer.android.com/design/patterns/navigation.html
 			// for more.
+			gotoHell = true;
+		}
+		if (gotoHell) {
 			NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
 			return true;
 		}
