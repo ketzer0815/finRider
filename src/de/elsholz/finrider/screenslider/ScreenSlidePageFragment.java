@@ -45,7 +45,7 @@ public class ScreenSlidePageFragment extends Fragment {
                 getString(R.string.title_template_step, mPageNumber + 1));
         
         //Set the content
-        ((TextView) rootView.findViewById(R.id.fragment_screen_slide_page_text_body) ).setText("Index: "+mPageNumber);
+        ((TextView) rootView.findViewById(R.id.fragment_screen_slide_page_text_body) ).setText("Spielbank - Zins 3.1% - Rate 523€");
 
         return rootView;
     }
