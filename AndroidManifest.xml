@@ -11,7 +11,7 @@
         API 12: ViewPropertyAnimator
         API 14: View properties (android.util.Property) such as View.X and View.Y.
     -->
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="17" />
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
 
     <application android:allowBackup="true"
         android:label="@string/app_name"
